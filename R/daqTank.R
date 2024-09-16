@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 daqTank <- function(id=NULL, base=NULL, className=NULL, color=NULL, currentValueStyle=NULL, exceedMessage=NULL, height=NULL, label=NULL, labelPosition=NULL, lagingMessage=NULL, logarithmic=NULL, max=NULL, min=NULL, scale=NULL, showCurrentValue=NULL, style=NULL, textColor=NULL, theme=NULL, units=NULL, value=NULL, width=NULL) {
     
     props <- list(id=id, base=base, className=className, color=color, currentValueStyle=currentValueStyle, exceedMessage=exceedMessage, height=height, label=label, labelPosition=labelPosition, lagingMessage=lagingMessage, logarithmic=logarithmic, max=max, min=min, scale=scale, showCurrentValue=showCurrentValue, style=style, textColor=textColor, theme=theme, units=units, value=value, width=width)

@@ -18,7 +18,7 @@ vertical=NULL)
 }
 
 \arguments{
-\item{id}{Character. The ID used to identify this compnent in Dash callbacks}
+\item{id}{Character. The ID used to identify this component in Dash callbacks}
 
 \item{className}{Character. Class to apply to the root component element.}
 

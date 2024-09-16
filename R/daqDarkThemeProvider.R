@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 daqDarkThemeProvider <- function(children=NULL, theme=NULL) {
     
     props <- list(children=children, theme=theme)

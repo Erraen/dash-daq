@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 daqThermometer <- function(id=NULL, base=NULL, className=NULL, color=NULL, height=NULL, label=NULL, labelPosition=NULL, logarithmic=NULL, max=NULL, min=NULL, scale=NULL, showCurrentValue=NULL, style=NULL, theme=NULL, units=NULL, value=NULL, width=NULL) {
     
     props <- list(id=id, base=base, className=className, color=color, height=height, label=label, labelPosition=labelPosition, logarithmic=logarithmic, max=max, min=min, scale=scale, showCurrentValue=showCurrentValue, style=style, theme=theme, units=units, value=value, width=width)
