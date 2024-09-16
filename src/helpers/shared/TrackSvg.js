@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
+import deepEqual from 'deep-equal';
 
 import { longestString, getRandomInt, computeProgress } from '../../helpers/util';
 import { isContiguous, getSortedEntries } from '../../helpers/colorRanges';
@@ -77,6 +78,24 @@ export const colorRangesTrack = (props, dimensions) => {
   );
 };
 
+export const cachedColorRangesTrack = (props, dimensions) => {
+  const { color, min, max } = props;
+  const trackState = {color: color, min: min, max: max, dimensions: dimensions};
+  const [vTrackState, setTrackState] = useState(trackState);
+
+  useEffect(() => {
+    if (!deepEqual(trackState, vTrackState)) {
+      setTrackState(trackState);
+    }
+  }, [trackState, vTrackState]);
+
+  const track = useMemo(
+	() => (color && color.ranges && colorRangesTrack(props, dimensions)),
+	[vTrackState]
+  )
+  return track;
+};
+
 export const lightTrack = (props, dimensions) => {
   const { color, progress } = props;
   const { CX, CY, GAUGE_RAD, CIRCLE_CIR, GAP_ARC_LENGTH, TRACK_ARC_LENGTH } = dimensions;
@@ -105,7 +124,7 @@ export const lightTrack = (props, dimensions) => {
         strokeWidth="6"
         transform={`rotate(-225 ${CX} ${CY})`}
       />
-      {color && color.ranges && colorRangesTrack(props, dimensions)}
+      {color && color.ranges && cachedColorRangesTrack(props, dimensions)}
     </g>
   );
 };
