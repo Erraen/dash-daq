@@ -144,4 +144,50 @@ describe('LEDDisplay', () => {
     expect(label).toHaveLength(1);
     expect(label.prop('style').color).toBe('blue');
   });
+
+  it('renders number on fixed-width display correctly', () => {
+    const component = mount(<LEDDisplay value={123} n_digits={5} />);
+
+    const digits = component.find(Digit);
+    expect(digits).toHaveLength(5);
+    expect(digits.get(0).props.value).toBe(' ');
+    expect(digits.get(1).props.value).toBe(' ');
+    expect(digits.get(2).props.value).toBe('1');
+    expect(digits.get(3).props.value).toBe('2');
+    expect(digits.get(4).props.value).toBe('3');
+  });
+
+  it('renders number on fixed-width display with overflow correctly', () => {
+    const component = mount(<LEDDisplay value={123} n_digits={2} />);
+
+    const digits = component.find(Digit);
+    expect(digits).toHaveLength(3);
+    expect(digits.get(0).props.value).toBe('1');
+    expect(digits.get(1).props.value).toBe('2');
+    expect(digits.get(2).props.value).toBe('3');
+  });
+
+  it('renders decimal values on fixed-width display correctly', () => {
+    const component = mount(<LEDDisplay value={'1.23'} n_digits={5} />);
+
+    const digits = component.find(Digit);
+    expect(digits).toHaveLength(5);
+    expect(digits.get(0).props.value).toBe(' ');
+    expect(digits.get(1).props.value).toBe(' ');
+    expect(digits.get(2).props.value).toBe('1');
+    expect(digits.get(2).props.hasDecimal).toBeTruthy();
+    expect(digits.get(3).props.value).toBe('2');
+    expect(digits.get(4).props.value).toBe('3');
+  });
+
+  it('renders decimal values on fixed-width display with overflow correctly', () => {
+    const component = mount(<LEDDisplay value={'1.23'} n_digits={2} />);
+
+    const digits = component.find(Digit);
+    expect(digits).toHaveLength(3);
+    expect(digits.get(0).props.value).toBe('1');
+    expect(digits.get(0).props.hasDecimal).toBeTruthy();
+    expect(digits.get(1).props.value).toBe('2');
+    expect(digits.get(2).props.value).toBe('3');
+  });
 });

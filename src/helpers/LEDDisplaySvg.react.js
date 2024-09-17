@@ -15,7 +15,8 @@ const DIGITS = {
   7: ['A', 'B', 'C'],
   8: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
   9: ['A', 'B', 'C', 'D', 'F', 'G'],
-  '-': ['G']
+  '-': ['G'],
+  ' ': []
 };
 
 // See the following link for segment mappings:

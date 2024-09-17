@@ -33,7 +33,7 @@ const LEDDisplay = props => {
   );
 };
 
-function extractDigits({ value, color, backgroundColor, theme, size }, elementName) {
+function extractDigits({ value, color, backgroundColor, theme, size, n_digits }, elementName) {
   const digitStack = value
     .toString()
     .split('')
@@ -42,6 +42,7 @@ function extractDigits({ value, color, backgroundColor, theme, size }, elementNa
   const formattedDigits = [];
 
   addLeadingZeroIfNeeded(digitStack);
+  addLeadingSpaceIfNeeded(digitStack, n_digits);
 
   let currKey = 0;
   while (digitStack.length) {
@@ -66,6 +67,21 @@ function extractDigits({ value, color, backgroundColor, theme, size }, elementNa
   }
 
   return formattedDigits;
+}
+
+function addLeadingSpaceIfNeeded(digits, n_digits) {
+  if (n_digits == null) {
+    return;
+  }
+  let expected_length = digits.length;
+  if (digits.includes('.') || digits.includes(':')) {
+    expected_length -= 1;
+  }
+  if (expected_length < n_digits) {
+    for (let i = 0; i < n_digits - expected_length; i++) {
+      digits.push(' ');
+    }
+  }
 }
 
 function addLeadingZeroIfNeeded(digits) {
@@ -101,6 +117,11 @@ LEDDisplay.propTypes = {
    * and possibly starting with a minus sign.
    */
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+
+  /**
+   * Num of digits in display
+   */
+  n_digits: PropTypes.number,
 
   /**
    * Color of the display
