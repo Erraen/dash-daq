@@ -11,8 +11,8 @@ A 7-bar LED display component.
 
 \usage{
 daqLEDDisplay(id=NULL, backgroundColor=NULL, className=NULL, color=NULL,
-label=NULL, labelPosition=NULL, size=NULL, style=NULL,
-theme=NULL, value=NULL)
+label=NULL, labelPosition=NULL, n_digits=NULL, size=NULL,
+style=NULL, theme=NULL, value=NULL)
 }
 
 \arguments{
@@ -31,6 +31,8 @@ those elements have the following types:
 pass an object with label and style properties}
 
 \item{labelPosition}{A value equal to: 'top', 'bottom'. Where the display label is positioned}
+
+\item{n_digits}{Numeric. Num of digits in display}
 
 \item{size}{Numeric. Size of the display}
 

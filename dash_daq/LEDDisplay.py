@@ -34,6 +34,9 @@ Keyword arguments:
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the display label is positioned.
 
+- n_digits (number; optional):
+    Num of digits in display.
+
 - size (number; default 42):
     Size of the display.
 
@@ -52,10 +55,10 @@ Keyword arguments:
     _namespace = 'dash_daq'
     _type = 'LEDDisplay'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, color=Component.UNDEFINED, backgroundColor=Component.UNDEFINED, size=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'backgroundColor', 'className', 'color', 'label', 'labelPosition', 'size', 'style', 'theme', 'value']
+    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, n_digits=Component.UNDEFINED, color=Component.UNDEFINED, backgroundColor=Component.UNDEFINED, size=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'backgroundColor', 'className', 'color', 'label', 'labelPosition', 'n_digits', 'size', 'style', 'theme', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'backgroundColor', 'className', 'color', 'label', 'labelPosition', 'size', 'style', 'theme', 'value']
+        self.available_properties = ['id', 'backgroundColor', 'className', 'color', 'label', 'labelPosition', 'n_digits', 'size', 'style', 'theme', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
