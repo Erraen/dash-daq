@@ -50,7 +50,7 @@ export const colorRangesTrack = (props, dimensions) => {
 
   const gradient = new ConicGradient({
     stops: stops.join(', '),
-    size: 400
+    size: 499
   });
 
   // unique id for each track
