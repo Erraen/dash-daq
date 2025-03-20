@@ -25,9 +25,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the numeric input label is positioned.

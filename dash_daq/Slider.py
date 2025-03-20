@@ -55,11 +55,11 @@ Keyword arguments:
 
     `handleLabel` is a string | dict with keys:
 
-    - color (string; optional)
+    - showCurrentValue (boolean; optional)
 
     - label (string; optional)
 
-    - showCurrentValue (boolean; optional)
+    - color (string; optional)
 
     - style (dict; optional)
 
@@ -84,9 +84,9 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - label (string; optional)
-
         - style (dict; optional)
+
+        - label (string; optional)
 
 - max (number; optional):
     Maximum allowed value of the slider.
@@ -136,11 +136,11 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - color (string; optional)
+        - showCurrentValue (boolean; optional)
 
         - label (string; optional)
 
-        - showCurrentValue (boolean; optional)
+        - color (string; optional)
 
         - style (dict; optional)
 

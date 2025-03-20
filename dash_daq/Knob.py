@@ -49,9 +49,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the knob label is positioned.
@@ -86,6 +86,17 @@ Keyword arguments:
 
     `scale` is a dict with keys:
 
+    - start (number; optional):
+        Value to start the scale from. Defaults to min.
+
+    - interval (number; optional):
+        Interval by which the scale goes up. Attempts to dynamically
+        divide min-max range by default.
+
+    - labelInterval (number; optional):
+        Interval by which labels are added to scale marks. Defaults to
+        2 (every other mark has a label).
+
     - custom (dict; optional):
         Custom scale marks. The key determines the position and the
         value determines what will show. If you want to set the style
@@ -96,20 +107,9 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - label (string; optional)
-
         - style (string; optional)
 
-    - interval (number; optional):
-        Interval by which the scale goes up. Attempts to dynamically
-        divide min-max range by default.
-
-    - labelInterval (number; optional):
-        Interval by which labels are added to scale marks. Defaults to
-        2 (every other mark has a label).
-
-    - start (number; optional):
-        Value to start the scale from. Defaults to min.
+        - label (string; optional)
 
 - showCurrentValue (boolean; optional):
     show current value of knob.

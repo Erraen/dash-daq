@@ -28,15 +28,15 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
       Or list of string | dict with keys:
 
-    - label (string; optional)
+    - style (dict; optional)
 
-    - style (dict; optional)s
+    - label (string; optional)s
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the component label is positioned.

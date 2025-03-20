@@ -24,9 +24,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the indicator label is positioned.
@@ -72,13 +72,13 @@ Keyword arguments:
 
         `rbg` is a dict with keys:
 
-        - a (number; optional)
-
-        - b (number; optional)
+        - r (number; optional)
 
         - g (number; optional)
 
-        - r (number; optional)"""
+        - b (number; optional)
+
+        - a (number; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'dash_daq'

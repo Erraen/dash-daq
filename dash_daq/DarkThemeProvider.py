@@ -18,17 +18,17 @@ Keyword arguments:
 
     `theme` is a dict with keys:
 
-    - dark (boolean; optional):
-        True for Dark mode, False for Light.
-
-    - detail (string; optional):
-        Color used for UI details, like borders.
-
     - primary (string; optional):
         Highlight color.
 
     - secondary (string; optional):
-        Supporting color."""
+        Supporting color.
+
+    - detail (string; optional):
+        Color used for UI details, like borders.
+
+    - dark (boolean; optional):
+        True for Dark mode, False for Light."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'dash_daq'
