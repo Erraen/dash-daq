@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class PowerButton(Component):
@@ -28,9 +35,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the button label is positioned.
@@ -66,17 +73,40 @@ Keyword arguments:
 - size (number; default 48):
     The size (diameter) of the power button in pixels.
 
-- style (dict; optional):
-    Style to apply to the root component element.
-
 - theme (dict; default light):
     Theme configuration to be set by a ThemeProvider."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'PowerButton'
+    Label = TypedDict(
+        "Label",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, on=Component.UNDEFINED, color=Component.UNDEFINED, size=Component.UNDEFINED, disabled=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, onButtonStyle=Component.UNDEFINED, offButtonStyle=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        on: typing.Optional[bool] = None,
+        color: typing.Optional[str] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        disabled: typing.Optional[bool] = None,
+        theme: typing.Optional[dict] = None,
+        label: typing.Optional[typing.Union[str, "Label"]] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        className: typing.Optional[str] = None,
+        style: typing.Optional[typing.Any] = None,
+        onButtonStyle: typing.Optional[dict] = None,
+        offButtonStyle: typing.Optional[dict] = None,
+        persistence: typing.Optional[typing.Union[bool, str, typing.Union[int, float, numbers.Number]]] = None,
+        persisted_props: typing.Optional[typing.Sequence[Literal["on"]]] = None,
+        persistence_type: typing.Optional[Literal["local", "session", "memory"]] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'className', 'color', 'disabled', 'label', 'labelPosition', 'offButtonStyle', 'on', 'onButtonStyle', 'persisted_props', 'persistence', 'persistence_type', 'size', 'style', 'theme']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'disabled', 'label', 'labelPosition', 'offButtonStyle', 'on', 'onButtonStyle', 'persisted_props', 'persistence', 'persistence_type', 'size', 'style', 'theme']

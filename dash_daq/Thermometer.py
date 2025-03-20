@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class Thermometer(Component):
@@ -32,9 +39,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the component label is positioned.
@@ -55,6 +62,17 @@ Keyword arguments:
 
     `scale` is a dict with keys:
 
+    - start (number; optional):
+        Value to start the scale from. Defaults to min.
+
+    - interval (number; optional):
+        Interval by which the scale goes up. Attempts to dynamically
+        divide min-max range by default.
+
+    - labelInterval (number; optional):
+        Interval by which labels are added to scale marks. Defaults to
+        2 (every other mark has a label).
+
     - custom (dict; optional):
         Custom scale marks. The key determines the position and the
         value determines what will show. If you want to set the style
@@ -65,26 +83,12 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - label (string; optional)
-
         - style (string; optional)
 
-    - interval (number; optional):
-        Interval by which the scale goes up. Attempts to dynamically
-        divide min-max range by default.
-
-    - labelInterval (number; optional):
-        Interval by which labels are added to scale marks. Defaults to
-        2 (every other mark has a label).
-
-    - start (number; optional):
-        Value to start the scale from. Defaults to min.
+        - label (string; optional)
 
 - showCurrentValue (boolean; optional):
     If True, the current value of the thermometer will be displayed.
-
-- style (dict; optional):
-    Style to apply to the root component element.
 
 - theme (dict; default light):
     Theme configuration to be set by a ThemeProvider.
@@ -102,8 +106,54 @@ Keyword arguments:
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'Thermometer'
+    Label = TypedDict(
+        "Label",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
+    ScaleCustom = TypedDict(
+        "ScaleCustom",
+            {
+            "style": NotRequired[str],
+            "label": NotRequired[str]
+        }
+    )
+
+    Scale = TypedDict(
+        "Scale",
+            {
+            "start": NotRequired[typing.Union[int, float, numbers.Number]],
+            "interval": NotRequired[typing.Union[int, float, numbers.Number]],
+            "labelInterval": NotRequired[typing.Union[int, float, numbers.Number]],
+            "custom": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], "ScaleCustom"]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, color=Component.UNDEFINED, min=Component.UNDEFINED, max=Component.UNDEFINED, base=Component.UNDEFINED, logarithmic=Component.UNDEFINED, showCurrentValue=Component.UNDEFINED, units=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, scale=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        value: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        color: typing.Optional[str] = None,
+        min: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        max: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        base: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        logarithmic: typing.Optional[bool] = None,
+        showCurrentValue: typing.Optional[bool] = None,
+        units: typing.Optional[str] = None,
+        theme: typing.Optional[dict] = None,
+        label: typing.Optional[typing.Union[str, "Label"]] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        scale: typing.Optional["Scale"] = None,
+        className: typing.Optional[str] = None,
+        style: typing.Optional[typing.Any] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'base', 'className', 'color', 'height', 'label', 'labelPosition', 'logarithmic', 'max', 'min', 'scale', 'showCurrentValue', 'style', 'theme', 'units', 'value', 'width']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'base', 'className', 'color', 'height', 'label', 'labelPosition', 'logarithmic', 'max', 'min', 'scale', 'showCurrentValue', 'style', 'theme', 'units', 'value', 'width']

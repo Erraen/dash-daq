@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class Knob(Component):
@@ -49,9 +56,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the knob label is positioned.
@@ -86,6 +93,17 @@ Keyword arguments:
 
     `scale` is a dict with keys:
 
+    - start (number; optional):
+        Value to start the scale from. Defaults to min.
+
+    - interval (number; optional):
+        Interval by which the scale goes up. Attempts to dynamically
+        divide min-max range by default.
+
+    - labelInterval (number; optional):
+        Interval by which labels are added to scale marks. Defaults to
+        2 (every other mark has a label).
+
     - custom (dict; optional):
         Custom scale marks. The key determines the position and the
         value determines what will show. If you want to set the style
@@ -96,29 +114,15 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - label (string; optional)
-
         - style (string; optional)
 
-    - interval (number; optional):
-        Interval by which the scale goes up. Attempts to dynamically
-        divide min-max range by default.
-
-    - labelInterval (number; optional):
-        Interval by which labels are added to scale marks. Defaults to
-        2 (every other mark has a label).
-
-    - start (number; optional):
-        Value to start the scale from. Defaults to min.
+        - label (string; optional)
 
 - showCurrentValue (boolean; optional):
     show current value of knob.
 
 - size (number; default 114):
     The size (diameter) of the knob in pixels.
-
-- style (dict; optional):
-    Style to apply to the root component element.
 
 - textColor (string; optional):
     text color of scale.
@@ -132,8 +136,72 @@ Keyword arguments:
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'Knob'
+    ColorRanges = TypedDict(
+        "ColorRanges",
+            {
+            "color": NotRequired[typing.Sequence[typing.Union[int, float, numbers.Number]]]
+        }
+    )
+
+    Color = TypedDict(
+        "Color",
+            {
+            "default": NotRequired[str],
+            "gradient": NotRequired[bool],
+            "ranges": NotRequired["ColorRanges"]
+        }
+    )
+
+    Label = TypedDict(
+        "Label",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
+    ScaleCustom = TypedDict(
+        "ScaleCustom",
+            {
+            "style": NotRequired[str],
+            "label": NotRequired[str]
+        }
+    )
+
+    Scale = TypedDict(
+        "Scale",
+            {
+            "start": NotRequired[typing.Union[int, float, numbers.Number]],
+            "interval": NotRequired[typing.Union[int, float, numbers.Number]],
+            "labelInterval": NotRequired[typing.Union[int, float, numbers.Number]],
+            "custom": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], "ScaleCustom"]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, color=Component.UNDEFINED, size=Component.UNDEFINED, min=Component.UNDEFINED, max=Component.UNDEFINED, disabled=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, scale=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, showCurrentValue=Component.UNDEFINED, textColor=Component.UNDEFINED, digits=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        value: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        color: typing.Optional[typing.Union[str, "Color"]] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        min: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        max: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        disabled: typing.Optional[bool] = None,
+        theme: typing.Optional[dict] = None,
+        label: typing.Optional[typing.Union[str, "Label"]] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        scale: typing.Optional["Scale"] = None,
+        className: typing.Optional[str] = None,
+        style: typing.Optional[typing.Any] = None,
+        persistence: typing.Optional[typing.Union[bool, str, typing.Union[int, float, numbers.Number]]] = None,
+        persisted_props: typing.Optional[typing.Sequence[Literal["value"]]] = None,
+        persistence_type: typing.Optional[Literal["local", "session", "memory"]] = None,
+        showCurrentValue: typing.Optional[bool] = None,
+        textColor: typing.Optional[str] = None,
+        digits: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'className', 'color', 'digits', 'disabled', 'label', 'labelPosition', 'max', 'min', 'persisted_props', 'persistence', 'persistence_type', 'scale', 'showCurrentValue', 'size', 'style', 'textColor', 'theme', 'value']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'digits', 'disabled', 'label', 'labelPosition', 'max', 'min', 'persisted_props', 'persistence', 'persistence_type', 'scale', 'showCurrentValue', 'size', 'style', 'textColor', 'theme', 'value']

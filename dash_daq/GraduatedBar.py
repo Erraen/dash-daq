@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class GraduatedBar(Component):
@@ -45,9 +52,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the component label is positioned.
@@ -67,9 +74,6 @@ Keyword arguments:
 - step (number; default 0.5):
     Value by which progress blocks appear.
 
-- style (dict; optional):
-    Style to apply to the root component element.
-
 - theme (dict; default light):
     Theme configuration to be set by a ThemeProvider.
 
@@ -82,8 +86,49 @@ Keyword arguments:
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'GraduatedBar'
+    ColorRanges = TypedDict(
+        "ColorRanges",
+            {
+            "color": NotRequired[typing.Sequence[typing.Union[int, float, numbers.Number]]]
+        }
+    )
+
+    Color = TypedDict(
+        "Color",
+            {
+            "default": NotRequired[str],
+            "gradient": NotRequired[bool],
+            "ranges": NotRequired["ColorRanges"]
+        }
+    )
+
+    Label = TypedDict(
+        "Label",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, color=Component.UNDEFINED, size=Component.UNDEFINED, vertical=Component.UNDEFINED, min=Component.UNDEFINED, max=Component.UNDEFINED, step=Component.UNDEFINED, showCurrentValue=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        value: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        color: typing.Optional[typing.Union[str, "Color"]] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        vertical: typing.Optional[bool] = None,
+        min: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        max: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        step: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showCurrentValue: typing.Optional[bool] = None,
+        theme: typing.Optional[dict] = None,
+        label: typing.Optional[typing.Union[str, "Label"]] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        className: typing.Optional[str] = None,
+        style: typing.Optional[typing.Any] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'className', 'color', 'label', 'labelPosition', 'max', 'min', 'showCurrentValue', 'size', 'step', 'style', 'theme', 'value', 'vertical']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'label', 'labelPosition', 'max', 'min', 'showCurrentValue', 'size', 'step', 'style', 'theme', 'value', 'vertical']

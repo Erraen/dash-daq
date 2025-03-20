@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class ColorPicker(Component):
@@ -24,9 +31,9 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the indicator label is positioned.
@@ -53,9 +60,6 @@ Keyword arguments:
 - size (number; default 225):
     Size (width) of the component in pixels.
 
-- style (dict; optional):
-    Style to apply to the root component element.
-
 - theme (dict; default light):
     Theme configuration to be set by a ThemeProvider.
 
@@ -72,19 +76,60 @@ Keyword arguments:
 
         `rbg` is a dict with keys:
 
-        - a (number; optional)
-
-        - b (number; optional)
+        - r (number; optional)
 
         - g (number; optional)
 
-        - r (number; optional)"""
+        - b (number; optional)
+
+        - a (number; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'ColorPicker'
+    ValueRbg = TypedDict(
+        "ValueRbg",
+            {
+            "r": NotRequired[typing.Union[int, float, numbers.Number]],
+            "g": NotRequired[typing.Union[int, float, numbers.Number]],
+            "b": NotRequired[typing.Union[int, float, numbers.Number]],
+            "a": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Value = TypedDict(
+        "Value",
+            {
+            "hex": NotRequired[str],
+            "rbg": NotRequired["ValueRbg"]
+        }
+    )
+
+    Label = TypedDict(
+        "Label",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, disabled=Component.UNDEFINED, size=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        value: typing.Optional["Value"] = None,
+        disabled: typing.Optional[bool] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        theme: typing.Optional[dict] = None,
+        label: typing.Optional[typing.Union[str, "Label"]] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        className: typing.Optional[str] = None,
+        style: typing.Optional[typing.Any] = None,
+        persistence: typing.Optional[typing.Union[bool, str, typing.Union[int, float, numbers.Number]]] = None,
+        persisted_props: typing.Optional[typing.Sequence[Literal["value"]]] = None,
+        persistence_type: typing.Optional[Literal["local", "session", "memory"]] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'className', 'disabled', 'label', 'labelPosition', 'persisted_props', 'persistence', 'persistence_type', 'size', 'style', 'theme', 'value']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'disabled', 'label', 'labelPosition', 'persisted_props', 'persistence', 'persistence_type', 'size', 'style', 'theme', 'value']

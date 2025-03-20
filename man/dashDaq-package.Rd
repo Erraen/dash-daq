@@ -7,5 +7,5 @@
 A robust set of controls that make it simpler to integrate data acquisition and controls into your Dash applications.
 }
 \author{
-\strong{Maintainer}: Ryan Patrick Kyle <ryan@plotly.com>
+\strong{Maintainer}: The Plotly Team <dashdaq@plotly.com>
 }

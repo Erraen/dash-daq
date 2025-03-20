@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class Slider(Component):
@@ -55,11 +62,11 @@ Keyword arguments:
 
     `handleLabel` is a string | dict with keys:
 
-    - color (string; optional)
+    - showCurrentValue (boolean; optional)
 
     - label (string; optional)
 
-    - showCurrentValue (boolean; optional)
+    - color (string; optional)
 
     - style (dict; optional)
 
@@ -84,9 +91,9 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - label (string; optional)
-
         - style (dict; optional)
+
+        - label (string; optional)
 
 - max (number; optional):
     Maximum allowed value of the slider.
@@ -119,9 +126,6 @@ Keyword arguments:
 - step (number; optional):
     Value by which increments or decrements are made.
 
-- style (dict; default { display: 'flex', justifyContent: 'center' }):
-    Style to apply to the root component element.
-
 - targets (dict; optional):
     Targets on the slider. The key determines the position, and the
     value determines what will show. If you want to set the style of a
@@ -136,11 +140,11 @@ Keyword arguments:
 
       Or dict with keys:
 
-        - color (string; optional)
+        - showCurrentValue (boolean; optional)
 
         - label (string; optional)
 
-        - showCurrentValue (boolean; optional)
+        - color (string; optional)
 
         - style (dict; optional)
 
@@ -163,8 +167,92 @@ Keyword arguments:
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'Slider'
+    MarksNumber = TypedDict(
+        "MarksNumber",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
+    Marks = TypedDict(
+        "Marks",
+            {
+            "number": NotRequired[typing.Union[str, "MarksNumber"]]
+        }
+    )
+
+    ColorRanges = TypedDict(
+        "ColorRanges",
+            {
+            "color": NotRequired[typing.Sequence[typing.Union[int, float, numbers.Number]]]
+        }
+    )
+
+    Color = TypedDict(
+        "Color",
+            {
+            "default": NotRequired[str],
+            "gradient": NotRequired[bool],
+            "ranges": NotRequired["ColorRanges"]
+        }
+    )
+
+    TargetsNumber = TypedDict(
+        "TargetsNumber",
+            {
+            "showCurrentValue": NotRequired[bool],
+            "label": NotRequired[str],
+            "color": NotRequired[str],
+            "style": NotRequired[dict]
+        }
+    )
+
+    Targets = TypedDict(
+        "Targets",
+            {
+            "number": NotRequired[typing.Union[str, "TargetsNumber"]]
+        }
+    )
+
+    HandleLabel = TypedDict(
+        "HandleLabel",
+            {
+            "showCurrentValue": NotRequired[bool],
+            "label": NotRequired[str],
+            "color": NotRequired[str],
+            "style": NotRequired[dict]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, marks=Component.UNDEFINED, color=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, labelPosition=Component.UNDEFINED, disabled=Component.UNDEFINED, dots=Component.UNDEFINED, included=Component.UNDEFINED, min=Component.UNDEFINED, max=Component.UNDEFINED, step=Component.UNDEFINED, vertical=Component.UNDEFINED, size=Component.UNDEFINED, targets=Component.UNDEFINED, theme=Component.UNDEFINED, handleLabel=Component.UNDEFINED, updatemode=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, fullSize=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        style: typing.Optional[typing.Any] = None,
+        marks: typing.Optional["Marks"] = None,
+        color: typing.Optional[typing.Union[str, "Color"]] = None,
+        value: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        className: typing.Optional[str] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        disabled: typing.Optional[bool] = None,
+        dots: typing.Optional[bool] = None,
+        included: typing.Optional[bool] = None,
+        min: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        max: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        step: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        vertical: typing.Optional[bool] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        targets: typing.Optional["Targets"] = None,
+        theme: typing.Optional[dict] = None,
+        handleLabel: typing.Optional[typing.Union[str, "HandleLabel"]] = None,
+        updatemode: typing.Optional[Literal["mouseup", "drag"]] = None,
+        persistence: typing.Optional[typing.Union[bool, str, typing.Union[int, float, numbers.Number]]] = None,
+        persisted_props: typing.Optional[typing.Sequence[Literal["value"]]] = None,
+        persistence_type: typing.Optional[Literal["local", "session", "memory"]] = None,
+        fullSize: typing.Optional[bool] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'className', 'color', 'disabled', 'dots', 'fullSize', 'handleLabel', 'included', 'labelPosition', 'marks', 'max', 'min', 'persisted_props', 'persistence', 'persistence_type', 'size', 'step', 'style', 'targets', 'theme', 'updatemode', 'value', 'vertical']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'disabled', 'dots', 'fullSize', 'handleLabel', 'included', 'labelPosition', 'marks', 'max', 'min', 'persisted_props', 'persistence', 'persistence_type', 'size', 'step', 'style', 'targets', 'theme', 'updatemode', 'value', 'vertical']

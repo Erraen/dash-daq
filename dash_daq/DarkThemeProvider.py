@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class DarkThemeProvider(Component):
@@ -18,23 +25,38 @@ Keyword arguments:
 
     `theme` is a dict with keys:
 
-    - dark (boolean; optional):
-        True for Dark mode, False for Light.
-
-    - detail (string; optional):
-        Color used for UI details, like borders.
-
     - primary (string; optional):
         Highlight color.
 
     - secondary (string; optional):
-        Supporting color."""
+        Supporting color.
+
+    - detail (string; optional):
+        Color used for UI details, like borders.
+
+    - dark (boolean; optional):
+        True for Dark mode, False for Light."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'DarkThemeProvider'
+    Theme = TypedDict(
+        "Theme",
+            {
+            "primary": NotRequired[str],
+            "secondary": NotRequired[str],
+            "detail": NotRequired[str],
+            "dark": NotRequired[bool]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, theme=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        theme: typing.Optional["Theme"] = None,
+        **kwargs
+    ):
         self._prop_names = ['children', 'theme']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['children', 'theme']

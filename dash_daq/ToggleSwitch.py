@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class ToggleSwitch(Component):
@@ -28,15 +35,15 @@ Keyword arguments:
 
     `label` is a string | dict with keys:
 
-    - label (string; optional)
-
     - style (dict; optional)
+
+    - label (string; optional)
 
       Or list of string | dict with keys:
 
-    - label (string; optional)
+    - style (dict; optional)
 
-    - style (dict; optional)s
+    - label (string; optional)s
 
 - labelPosition (a value equal to: 'top', 'bottom'; default 'top'):
     Where the component label is positioned.
@@ -63,9 +70,6 @@ Keyword arguments:
 - size (number; optional):
     The size of the switch.
 
-- style (dict; optional):
-    Style to apply to the root object.
-
 - theme (dict; default light):
     Theme configuration to be set by a ThemeProvider.
 
@@ -78,8 +82,33 @@ Keyword arguments:
     _base_nodes = ['children']
     _namespace = 'dash_daq'
     _type = 'ToggleSwitch'
+    Label = TypedDict(
+        "Label",
+            {
+            "style": NotRequired[dict],
+            "label": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, size=Component.UNDEFINED, color=Component.UNDEFINED, vertical=Component.UNDEFINED, disabled=Component.UNDEFINED, theme=Component.UNDEFINED, label=Component.UNDEFINED, labelPosition=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        value: typing.Optional[bool] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        color: typing.Optional[str] = None,
+        vertical: typing.Optional[bool] = None,
+        disabled: typing.Optional[bool] = None,
+        theme: typing.Optional[dict] = None,
+        label: typing.Optional[typing.Union[str, "Label", typing.Sequence[typing.Union[str, "Label"]]]] = None,
+        labelPosition: typing.Optional[Literal["top", "bottom"]] = None,
+        className: typing.Optional[str] = None,
+        style: typing.Optional[typing.Any] = None,
+        persistence: typing.Optional[typing.Union[bool, str, typing.Union[int, float, numbers.Number]]] = None,
+        persisted_props: typing.Optional[typing.Sequence[Literal["value"]]] = None,
+        persistence_type: typing.Optional[Literal["local", "session", "memory"]] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'className', 'color', 'disabled', 'label', 'labelPosition', 'persisted_props', 'persistence', 'persistence_type', 'size', 'style', 'theme', 'value', 'vertical']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'disabled', 'label', 'labelPosition', 'persisted_props', 'persistence', 'persistence_type', 'size', 'style', 'theme', 'value', 'vertical']
